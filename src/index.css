@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-neon-green: #00FF41;
+  --color-elegant-purple: #8B5CF6;
+  --color-dark-bg: #050505;
+  --color-card-bg: rgba(255, 255, 255, 0.03);
+  
+  --radius-3xl: 1.25rem;
+  --radius-4xl: 1.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-white font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .atmosphere {
+    @apply fixed inset-0 pointer-events-none -z-10;
+    background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 65, 0.1) 0, transparent 40%);
+  }
+
+  .glass {
+    @apply bg-white/3 backdrop-blur-[12px] border border-white/[0.08];
+  }
+  
+  .neon-shadow {
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+  }
+  
+  .neon-text {
+    @apply text-neon-green;
+  }
+
+  .neon-border {
+    @apply border border-neon-green/30 hover:border-neon-green/60 hover:shadow-[0_0_20px_rgba(0,255,65,0.2)] transition-all;
+  }
+
+  .purple-glow {
+    @apply relative after:absolute after:inset-0 after:bg-elegant-purple/10 after:blur-[120px] after:-z-10;
+  }
+
+  .text-muted {
+    @apply text-white/50;
+  }
+}
